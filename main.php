@@ -45,7 +45,7 @@ CTYPE html>
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-16">
-  <p>Made by Laura Gonzalez</a></p>
+  <p>Made by Laura</a></p>
 </footer>
 
 </body>

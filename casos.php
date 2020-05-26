@@ -1,8 +1,4 @@
-<!--    Laura Gonzalez. 
-	Prof. Carlos Corrada. 
-	CCOM4027-0U1. 
-	May 5, 2020
-
+<!--    Laura 
 -->
 
 <!DOCTYPE html>
