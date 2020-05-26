@@ -1,4 +1,4 @@
-<!--    Laura Gonzalez. 
+<!--Laura Gonzalez. 
 	Prof. Carlos Corrada. 
 	CCOM4027-0U1. 
 	May 5, 2020
@@ -30,7 +30,10 @@
 </head>
 <body>
 	<h2>Informacion sobre clientes</h2>
-	echo "<a href=anadir.php?where=0>Anadir Mocion</a> ";
+	<h4>Para eliminar cliente, es necesario eliminar primero los casos en los que participan por medidas de seguridad.</h4> 
+      <a href=insertar.php?where=0&edita=0>Anadir</a> 
+       <a href=main.php>Main</a>
+ 
  	<table>
 	  <tr>
 	    <th>Licencia</th>  
@@ -38,6 +41,7 @@
 	    <th>Residencia en MD</th>
 	    <th>Año de Residencia</th>
 	    <th>Email</th>
+	    <th>Operaciones</th>
 	  </tr>
 
 
@@ -48,12 +52,10 @@
 
 
 
-//header('Content-Type: text/html; charset="ISO-8859-1");
-
 $server = "localhost";
-$user = "laura.gonzalez19";
-$passwd = "801172841";
-$db = "ccom4027B92";
+$user = "CASOLCDO";
+$passwd = "fiY88T44157E1Sie";
+$db = "CASOLCDO";
 
 //Opens a new connection to the MySQL server
 
@@ -71,20 +73,20 @@ mysqli_query($conn, "SET NAMES 'utf8'");
 
 //Saves the query needed
 
-$query="SELECT * FROM Clientes ";
+$query="SELECT * FROM Cliente";
 
 $retquery = mysqli_query( $conn, $query);
 
 //Verifies if  the query produces an error
 
-if(! $retquery) {
-	die('Error ocasionado por el query: ' . mysqli_error());
+if(!$retquery) {
+	die('No hay nada en Cliente');
+	$no=1;
 }
 
 //Loops for the necessary tuples
-
+else{
 while($row = mysqli_fetch_assoc($retquery)) {
-
 
 //Prints out html needed for the table
  
@@ -92,20 +94,27 @@ while($row = mysqli_fetch_assoc($retquery)) {
 
    
 
-  echo "<tr>";
-  echo  "<td>A</td>" ;
-  echo  "<td>B</td>" ;
-  echo  "<td>C</td>" ;
-  echo  "<td>D</td>" ;
-  echo  "<td>E</td>" ;
-  echo  "</tr>"; 
+$a=$row["lic_medicina"];
+$b=$row["nom_cliente"];
+$c=$row["residency_lugar"];
+$d=$row["residencia_ano"];
+$e=$row["email_cliente"];
+
+
+
+echo "<tr>";
+echo  "<td>$a</td>" ;
+echo  "<td>$b</td>" ;
+echo  "<td>$c</td>" ;
+echo  "<td>$d</td>" ;
+echo  "<td>$e</td>" ; 
+echo "<td><a href=insertar.php?where=0&id=$a&edita=1>Editar</a> ";
+echo "<a href=procesaeliminar.php?where=0&id=$a>Eliminar</a> ";
+echo  "</td></tr>"; 
 
 }
-	
 
-
-
-
+}
 ?>
 
 		

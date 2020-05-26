@@ -30,8 +30,11 @@
 </head>
 <body>
 	<h2>Informacion sobre casos</h2>
-	echo "<a href=anadir.php?where=1>Anadir Mocion</a> ";
- 	<table>
+       <a href=insertar.php?where=1&edita=0>Insertar</a>
+	 <a href=main.php>Main</a>
+   	
+
+<table>
 	  <tr>
 	    <th>Numero en Oficina</th>  
 	    <th>Tribunal</th>
@@ -39,8 +42,8 @@
 	    <th>Numero en Tribunal</th>
 	    <th>Demandante</th>
 	    <th>Email Abogado Demandante</th>
-	    <th>Licencia</th>	
-
+	    <th>Licencia Medica del Cliente</th>	
+	    <th>Operaciones</th>
 	  </tr>
 
 
@@ -49,12 +52,12 @@
 
 <?php
 
-/*
+
 
 $server = "localhost";
-$user = "laura.gonzalez19";
-$passwd = "801172841";
-$db = "ccom4027B92";
+$user = "CASOLCDO";
+$passwd = "fiY88T44157E1Sie";
+$db = "CASOLCDO";
 
 //Opens a new connection to the MySQL server
 
@@ -74,32 +77,44 @@ mysqli_query($conn, "SET NAMES 'utf8'");
 
 $query="SELECT * FROM Caso_Historial ";
 
-$retquery = mysqli_query( $conn, $query);
+$retquery = mysqli_query($conn, $query);
 
 //Verifies if  the query produces an error
 
 if(!$retquery) {
-	die('Error ocasionado por el query: ' . mysqli_error());
+     die('Error'.mysqli_error($conn));
 }
-
+else{
 //Loops for the necessary tuples
 
 while($row = mysqli_fetch_assoc($retquery)) {
 
 //Prints out html needed for the table
-  echo "<tr>";
-  echo  "<td>$row['num_oficina']</td>" ;
-  echo  "<td>$row['num_tribunal']</td>" ;
-  echo  "<td>$row['tribunal']</td>" ;
-  echo  "<td>$row['sala']</td>" ;
-  echo  "<td>$row['demandante']</td>" ;
-  echo  "<td>$row['email_abog_demandante']</td>" ;
-  echo  "<td>$row['licencia_medicina']</td>" ;
-  echo  "</tr>"; 
+ 
+$a=$row["num_oficina"];
+$b=$row["num_tribunal"];
+$c=$row["tribunal"];
+$d=$row["sala"];
+$e=$row["demandante"];
+$f=$row["email_abog_demandante"];
+$g=$row["lic_medicina"];
+
+echo "<tr>";
+echo  "<td>$a</td>" ;
+echo  "<td>$c</td>" ;
+echo  "<td>$d</td>" ;
+echo  "<td>$b</td>" ;
+echo  "<td>$e</td>" ;
+echo  "<td>$f</td>" ;
+echo  "<td>$g</td>" ;
+echo "<td><a href=insertar.php?where=1&edita=1&id=$a>Editar</a> ";
+echo "<a href=procesaeliminar.php?where=1&id=$a>Eliminar</a> ";  
+echo "<a href=mociones.php?id=$a>Mociones</a>";
+echo  "</td></tr>"; 
 
 }
 	
-
+}
 
 
 
