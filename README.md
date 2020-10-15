@@ -1,5 +1,4 @@
-English
-For this database I built a page called main.php to redirect users to the main pages called Customer and Case 
+English: For this database I built a page called main.php to redirect users to the main pages called Customer and Case 
 (cliente.php and casos.php respectively). Within Client and Case you can find the links to edit, add and delete. 
 The hyperlink called Editar(edit) and the hyperlink called Anadir(add) goes to the insertar.php file where you
 can enter the necessary information for each client or case. Inside insertar.php, it has the necessary 
@@ -10,8 +9,7 @@ Within motions next to Edit and Delete is the link for Motions. It redirects to 
 has the links to edit, add and insert that redirect to the same places mentioned. Finally, Motions prints 
 the information for that particular case. Each of these three pages also has a link to redirect to main.php called Main
 
-Spanish
-Para esta base de datos construi una pagina llamada main.php para redirigir los usuarios a las
+Spanish: Para esta base de datos construi una pagina llamada main.php para redirigir los usuarios a las
 paginas principales llamadas Cliente y Caso(cliente.php y casos.php respectivamente). Dentro de  
 Cliente y Caso se puede encontrar los links para editar, anadir y eliminar. El hyperlink llamado 
 Editar y el hyperlink llamado Anadir se dirige al file insertar.php donde puedes ingresar la informacion 
